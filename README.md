@@ -65,6 +65,22 @@ The dashboard will automatically open at `http://localhost:8000/dashboard.html`
 
 ---
 
+## Dashboard Screenshots
+
+<p align="center">
+  <img src=".resources/example1.png" alt="Dashboard Overview - Business Use Case Distribution" width="800"/>
+  <br/>
+  <em>Interactive dashboard showing business use case distribution across 725 AI system proposals</em>
+</p>
+
+<p align="center">
+  <img src=".resources/example2.png" alt="Multi-dimensional Analysis - Architecture Pattern vs Human Oversight" width="800"/>
+  <br/>
+  <em>Multi-dimensional sunburst visualization exploring architecture patterns and human oversight levels</em>
+</p>
+
+---
+
 ## Interactive Dashboard
 
 The dashboard provides an intuitive interface for exploring all 19 dimensions of AI system analysis:
