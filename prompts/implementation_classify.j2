@@ -1,0 +1,146 @@
+You are an AI systems implementation expert analyzing the complexity and implementation requirements of AI system proposals. For each proposal below, classify it along multiple implementation complexity dimensions.
+
+## Classification Dimensions:
+
+### 1. DATA COMPLEXITY (pick ONE):
+- **Single Source, Structured** - Simple database queries, single API
+- **Multiple Sources, Structured** - Multiple APIs/DBs that need joining
+- **Multimodal, Simple** - Text + images OR text + audio
+- **Multimodal, Complex** - Text + images + audio + video + sensor data
+- **Streaming/Real-time** - Continuous data flow requiring stream processing
+- **Sparse/Incomplete** - Missing data, requires imputation/handling
+
+### 2. INTEGRATION COMPLEXITY (pick ONE):
+- **No External Integration** - Self-contained system
+- **Read-Only (1-3 systems)** - Simple API reads from few systems
+- **Read-Only (4+ systems)** - Complex data aggregation from many systems
+- **Write/Action (1-3 systems)** - Limited side effects on few systems
+- **Write/Action (4+ systems)** - Orchestrating changes across many systems
+- **Bidirectional with Compensation** - Need rollback/saga patterns
+
+### 3. PROMPT COMPLEXITY (pick ONE):
+- **Single Static Prompt** - One template, no variation
+- **Few Static Prompts (2-5)** - Simple sequential or branching
+- **Many Static Prompts (6+)** - Complex orchestration of many prompts
+- **Dynamic Prompt Assembly** - Context-dependent prompt generation
+- **Adaptive/Self-Modifying** - Prompts that evolve based on feedback
+- **Meta-Prompted** - LLM generates its own prompts
+
+### 4. CHAIN DEPTH (pick ONE):
+- **Single-Shot** - One LLM call, done
+- **Sequential (2-3 steps)** - Simple pipeline
+- **Sequential (4-7 steps)** - Medium pipeline
+- **Sequential (8+ steps)** - Deep pipeline with accumulating errors
+- **Branching (2-5 paths)** - Decision tree structure
+- **Branching (6+ paths)** - Complex decision tree
+- **Cyclic/Iterative** - Loops with exit conditions
+- **DAG (Directed Acyclic Graph)** - Complex dependencies
+
+### 5. SCHEMA COMPLEXITY (pick ONE):
+- **Unstructured Text** - Free-form response
+- **Simple Structured (flat JSON)** - Basic key-value pairs
+- **Nested Structured (2-3 levels)** - Moderate nesting
+- **Deep Structured (4+ levels)** - Complex nested objects
+- **Graph/Relational** - Entities with relationships
+- **Hybrid (Structured + Unstructured)** - Mixed outputs
+- **Streaming/Progressive** - Partial results over time
+
+### 6. STATE MANAGEMENT (pick ONE):
+- **Stateless** - No context retention needed
+- **Session State (Short-term)** - Within single conversation/session
+- **User State (Long-term)** - Across sessions, per user
+- **Complex State Machine** - Explicit state transitions
+- **Distributed State** - State across multiple systems
+- **Event Sourcing** - Full history replay capability
+
+### 7. ERROR HANDLING REQUIREMENTS (pick ONE):
+- **Best Effort** - Failures acceptable, log and continue
+- **Retry with Backoff** - Transient failures recoverable
+- **Graceful Degradation** - Fallback to simpler behavior
+- **Compensation/Rollback** - Must undo partial changes
+- **Mission Critical** - Cannot fail, need redundancy
+- **Human Escalation Required** - Complex errors need human judgment
+
+### 8. EVALUATION COMPLEXITY (pick ONE):
+- **Ground Truth Available (Exact Match)** - Clear right/wrong answers
+- **Ground Truth Available (Similarity)** - Semantic matching needed
+- **Proxy Metrics** - Indirect quality measures
+- **Human Evaluation Required (Simple)** - Binary thumbs up/down
+- **Human Evaluation Required (Complex)** - Expert domain judgment
+- **Multi-Dimensional Scoring** - Multiple quality aspects
+- **Delayed/Indirect Feedback** - Success known days/weeks later
+
+### 9. DOMAIN EXPERTISE DEPTH (pick ONE):
+- **General Knowledge** - Common sense reasoning
+- **Professional Knowledge** - Standard industry practices
+- **Specialist Knowledge** - Deep domain expertise (medical, legal)
+- **Expert Knowledge with Complex Rules** - Requires rare expertise + complex logic
+- **Cutting-Edge Research** - Frontier knowledge
+
+### 10. LATENCY REQUIREMENTS (pick ONE):
+- **Batch/Async (hours-days)** - No time pressure
+- **Near Real-time (minutes)** - Background processing
+- **Interactive (<5 seconds)** - User waiting but tolerant
+- **Real-time (<1 second)** - User expects instant response
+- **Sub-second (<200ms)** - Part of larger real-time flow
+- **Burst Handling Required** - Variable load, need scaling
+
+### 11. REGULATORY REQUIREMENTS (pick ONE):
+- **No Special Requirements** - General use
+- **Basic Audit Trail** - Who did what when
+- **Full Auditability** - Complete decision provenance
+- **Explainability Required** - Must justify every decision
+- **PII/Sensitive Data** - Privacy regulations apply
+- **Highly Regulated (HIPAA/SOX/etc.)** - Strict compliance
+- **Safety-Critical** - Human safety implications
+
+### 12. REREPRESENTATION TYPE (pick ONE or TWO):
+- **None/Text Description** - Simple enough to describe in text
+- **Linear Flow Diagram** - Sequential steps
+- **Decision Tree** - Branching logic
+- **State Machine** - Explicit states and transitions
+- **DAG (Directed Acyclic Graph)** - Complex dependencies
+- **Entity-Relationship Diagram** - Data model
+- **Process + Data Model (Combined)** - Both flow and entities
+- **Network/Graph Structure** - Complex relationships
+
+---
+
+{% for prop in proposals %}
+### Proposal {{ loop.index }}
+**Company:** {{ prop.company }}
+**Name:** {{ prop.proposal_name }}
+**Business Use Case:** {{ prop.business_use_case }}
+
+**Functionality:**
+{{ prop.functionality[:1500] }}
+
+**Problems Solved:**
+{{ prop.problems[:1000] }}
+
+**Current State:**
+{{ prop.current_state[:1000] }}
+
+---
+{% endfor %}
+
+Respond with a JSON array where each element corresponds to a proposal (by index 1-based):
+[
+  {
+    "proposal_index": 1,
+    "data_complexity": "string",
+    "integration_complexity": "string",
+    "prompt_complexity": "string",
+    "chain_depth": "string",
+    "schema_complexity": "string",
+    "state_management": "string",
+    "error_handling": "string",
+    "evaluation_complexity": "string",
+    "domain_expertise": "string",
+    "latency_requirements": "string",
+    "regulatory_requirements": "string",
+    "rerepresentation_type": "string or array of strings"
+  }
+]
+
+IMPORTANT: Return ONLY the JSON array, no other text.

@@ -1,0 +1,124 @@
+You are an expert in designing AI system iteration frameworks. Your task is to identify distinct "iteration shapes" or "iteration profiles" of AI systems.
+
+An **iteration shape** describes the characteristics of a system that determine how an iteration system should work with it. Different shapes require different iteration strategies, feedback mechanisms, testing approaches, and improvement cycles.
+
+Below are {{ proposals|length }} AI system proposals with their full dimensional classifications.
+
+## Your Task
+
+Analyze these systems and identify 8-12 distinct **iteration shapes**. For each shape, consider:
+
+1. **Iteration Velocity** - How quickly can the system be improved?
+   - Fast (hours-days): Automated eval, simple testing, quick deployment
+   - Medium (days-weeks): Some human eval, moderate testing
+   - Slow (weeks-months): Expert evaluation, extensive validation, compliance checks
+
+2. **Feedback Mechanism** - How do we know if changes improved the system?
+   - Automated metrics (exact match, similarity)
+   - Proxy metrics (indirect measures)
+   - Human evaluation (simple or expert judgment)
+   - Delayed/real-world feedback (days/weeks later)
+
+3. **Failure Mode Complexity** - How hard is it to diagnose and fix issues?
+   - Simple: Single-shot inference, one prompt, clear errors
+   - Moderate: Sequential chains, multiple prompts, some branching
+   - Complex: Deep chains, dynamic prompts, distributed state, many integrations
+   - Very Complex: Multi-agent, adaptive prompts, compensation logic
+
+4. **Validation Requirements** - What testing is needed per iteration?
+   - Minimal: Unit tests, basic smoke tests
+   - Standard: Integration tests, regression suite
+   - Extensive: End-to-end tests, performance tests, security tests
+   - Maximal: Regulatory compliance tests, safety validation, expert review
+
+5. **Root Cause Analysis Difficulty** - How hard to trace failures?
+   - Easy: Single LLM call, obvious errors
+   - Moderate: Sequential chain, log analysis reveals issues
+   - Hard: Branching paths, need detailed tracing
+   - Very Hard: Distributed state, async operations, external dependencies
+
+6. **Change Impact Scope** - When we iterate, what might break?
+   - Narrow: Single prompt change, isolated impact
+   - Medium: Multiple prompts, sequential dependencies
+   - Wide: System-wide changes, integration impacts
+   - Critical: Changes affect safety, compliance, or revenue
+
+## Proposals
+
+{% for prop in proposals %}
+---
+### Proposal {{ loop.index }}: {{ prop.company }} - {{ prop.proposal_name }}
+
+**Business Use Case:** {{ prop.business_use_case }}
+
+**Architecture:**
+- Pattern: {{ prop.architecture_pattern }}
+- Reasoning: {{ prop.reasoning_pattern }}
+- Execution: {{ prop.execution_pattern }}
+- Knowledge: {{ prop.knowledge_representation }}
+- Tools: {{ prop.tool_integration }}
+- Human Oversight: {{ prop.human_oversight }}
+
+**Implementation Complexity:**
+- Data: {{ prop.data_complexity }}
+- Integration: {{ prop.integration_complexity }}
+- Prompts: {{ prop.prompt_complexity }}
+- Chain: {{ prop.chain_depth }}
+- Schema: {{ prop.schema_complexity }}
+- State: {{ prop.state_management }}
+- Error Handling: {{ prop.error_handling }}
+- Evaluation: {{ prop.evaluation_complexity }}
+- Domain: {{ prop.domain_expertise }}
+- Latency: {{ prop.latency_requirements }}
+- Regulatory: {{ prop.regulatory_requirements }}
+
+**Functionality Summary:**
+{{ prop.functionality[:800] }}
+
+{% endfor %}
+---
+
+## Output Format
+
+Return a JSON array of iteration shapes. Each shape should have:
+
+```json
+[
+  {
+    "shape_name": "Fast-Iterating Single-Shot Systems",
+    "description": "Systems that can be improved rapidly with automated feedback",
+    "iteration_velocity": "Fast (hours-days)",
+    "feedback_mechanism": "Automated metrics",
+    "failure_mode_complexity": "Simple",
+    "validation_requirements": "Minimal",
+    "root_cause_difficulty": "Easy",
+    "change_impact_scope": "Narrow",
+    "iteration_strategy": "Rapid experimentation with automated testing. Use A/B testing, quick prompt iterations, automated regression detection.",
+    "example_characteristics": [
+      "Single-shot inference",
+      "Simple structured output",
+      "Ground truth available",
+      "No external integrations",
+      "Stateless"
+    ],
+    "estimated_proposals_matching": 50
+  }
+]
+```
+
+**Key Requirements:**
+1. Create 8-12 distinct shapes that cover the full spectrum
+2. Name each shape descriptively (focus on ITERATION characteristics)
+3. Each shape should represent systems that need SIMILAR iteration approaches
+4. The iteration_strategy field should explain HOW to iterate on systems with this shape
+5. Consider the interaction of multiple dimensions (e.g., complex evaluation + mission critical = very slow iteration)
+
+**Good shape names emphasize iteration:**
+- ✅ "Fast-Iterating Single-Shot Systems"
+- ✅ "Compliance-Constrained Slow-Iteration Systems"
+- ✅ "Multi-Integration Fragile Systems"
+- ✅ "Expert-Eval-Dependent Systems"
+- ❌ "Tool-Using Agents" (too architecture-focused)
+- ❌ "Customer Service Systems" (too business-focused)
+
+Return ONLY the JSON array, no other text.
