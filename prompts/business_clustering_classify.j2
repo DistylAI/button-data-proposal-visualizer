@@ -1,0 +1,17 @@
+Classify each proposal into ONE of these business use case types:
+
+{% for i, system_type in enumerate(system_types) %}
+{{ i + 1 }}. {{ system_type }}
+{% endfor %}
+
+Proposals:
+{% for prop in proposals %}
+{{ loop.index }}. {{ prop.company }} - {{ prop.proposal_name }}
+   Functionality: {{ prop.functionality[:800] }}
+   Problem Solving: {{ prop.problem_solving[:500] }}
+   Current State: {{ prop.current_state[:600] }}
+
+{% endfor %}
+
+Respond ONLY with a JSON array: [{"idx": 1, "type": "System Type Name"}, ...]
+Use the EXACT system type names from the list above.

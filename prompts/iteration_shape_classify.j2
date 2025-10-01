@@ -1,0 +1,73 @@
+You are an expert in AI system iteration frameworks. Classify each proposal below into the most appropriate iteration shape based on its characteristics.
+
+## Iteration Shapes
+
+{% for shape in iteration_shapes %}
+### {{ loop.index }}. {{ shape.shape_name }}
+**Description:** {{ shape.description }}
+- Iteration Velocity: {{ shape.iteration_velocity }}
+- Feedback Mechanism: {{ shape.feedback_mechanism }}
+- Failure Mode Complexity: {{ shape.failure_mode_complexity }}
+- Validation Requirements: {{ shape.validation_requirements }}
+- Root Cause Difficulty: {{ shape.root_cause_difficulty }}
+- Change Impact Scope: {{ shape.change_impact_scope }}
+
+**Iteration Strategy:** {{ shape.iteration_strategy }}
+
+**Example Characteristics:**
+{% for char in shape.example_characteristics %}  - {{ char }}
+{% endfor %}
+
+{% endfor %}
+
+## Proposals to Classify
+
+{% for prop in proposals %}
+---
+### Proposal {{ loop.index }}: {{ prop.company }} - {{ prop.proposal_name }}
+
+**Business Use Case:** {{ prop.business_use_case }}
+
+**Architecture:**
+- Pattern: {{ prop.architecture_pattern }}
+- Reasoning: {{ prop.reasoning_pattern }}
+- Execution: {{ prop.execution_pattern }}
+- Tools: {{ prop.tool_integration }}
+- Human Oversight: {{ prop.human_oversight }}
+
+**Implementation Complexity:**
+- Integration: {{ prop.integration_complexity }}
+- Prompts: {{ prop.prompt_complexity }}
+- Chain: {{ prop.chain_depth }}
+- Schema: {{ prop.schema_complexity }}
+- State: {{ prop.state_management }}
+- Error Handling: {{ prop.error_handling }}
+- Evaluation: {{ prop.evaluation_complexity }}
+- Domain: {{ prop.domain_expertise }}
+- Regulatory: {{ prop.regulatory_requirements }}
+
+{% endfor %}
+---
+
+## Output Format
+
+Return a JSON array with one entry per proposal:
+
+```json
+[
+  {
+    "idx": 1,
+    "iteration_shape": "Fast-Iterating Single-Shot Systems",
+    "confidence": "high|medium|low",
+    "reasoning": "Brief explanation of why this shape fits"
+  }
+]
+```
+
+**Guidelines:**
+- Consider ALL dimensions when classifying
+- Focus on what makes iteration HARD or EASY
+- High confidence when multiple dimensions clearly point to one shape
+- Low confidence when the system has mixed characteristics
+
+Return ONLY the JSON array, no other text.

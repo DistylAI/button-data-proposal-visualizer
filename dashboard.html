@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI System Proposal Analysis Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #f5f5f5;
+        }
+
+        .top-bar {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-right: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-right: auto;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stat strong {
+            color: #2c3e50;
+            font-size: 14px;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-group label {
+            font-size: 12px;
+            color: #7f8c8d;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        select, input[type="number"] {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            font-size: 13px;
+            color: #2c3e50;
+            min-width: 120px;
+        }
+
+        select:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+        }
+
+        input[type="number"] {
+            width: 70px;
+            min-width: 70px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .separator {
+            width: 1px;
+            height: 24px;
+            background: #e0e0e0;
+        }
+
+        .chart-container {
+            flex: 1;
+            background: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chart {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+
+        .error-banner {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+            padding: 12px 20px;
+            font-size: 13px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .error-banner.show {
+            display: flex;
+        }
+
+        .error-banner .close-btn {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+            color: #856404;
+            background: none;
+            border: none;
+            padding: 0 5px;
+        }
+
+        .info-icon {
+            cursor: help;
+            color: #3498db;
+            font-size: 14px;
+            margin-left: 3px;
+        }
+
+        @media (max-width: 1400px) {
+            .control-group {
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">📊 AI System Analysis</div>
+
+        <div class="stats">
+            <div class="stat">
+                <strong id="totalProposals">--</strong>
+                <span>proposals</span>
+            </div>
+            <div class="stat">
+                <strong id="totalCompanies">--</strong>
+                <span>companies</span>
+            </div>
+            <div class="stat">
+                <strong>19</strong>
+                <span>dimensions</span>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="control-group">
+            <label for="chartType">Chart</label>
+            <select id="chartType" onchange="onChartTypeChange()">
+                <option value="bar">Bar Chart</option>
+                <option value="pie">Pie Chart</option>
+                <option value="treemap">Treemap</option>
+                <option value="sunburst">Sunburst</option>
+                <option value="heatmap">Heatmap</option>
+                <option value="scatter">Scatter Plot</option>
+                <option value="sankey">Sankey</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="primaryDimension">Dimension</label>
+            <select id="primaryDimension" onchange="onDimensionChange()">
+                <optgroup label="Business">
+                    <option value="business_use_case">Business Use Case</option>
+                </optgroup>
+                <optgroup label="Architecture">
+                    <option value="architecture_pattern">Architecture Pattern</option>
+                    <option value="reasoning_pattern">Reasoning Pattern</option>
+                    <option value="execution_pattern">Execution Pattern</option>
+                    <option value="knowledge_representation">Knowledge Representation</option>
+                    <option value="input_modalities">Input Modalities</option>
+                    <option value="tool_integration">Tool Integration</option>
+                    <option value="human_oversight">Human Oversight</option>
+                </optgroup>
+                <optgroup label="Implementation">
+                    <option value="data_complexity">Data Complexity</option>
+                    <option value="integration_complexity">Integration Complexity</option>
+                    <option value="prompt_complexity">Prompt Complexity</option>
+                    <option value="chain_depth">Chain Depth</option>
+                    <option value="schema_complexity">Schema Complexity</option>
+                    <option value="state_management">State Management</option>
+                    <option value="error_handling">Error Handling</option>
+                    <option value="evaluation_complexity">Evaluation Complexity</option>
+                    <option value="domain_expertise">Domain Expertise</option>
+                    <option value="latency_requirements">Latency Requirements</option>
+                    <option value="regulatory_requirements">Regulatory Requirements</option>
+                    <option value="rerepresentation_type">Rerepresentation Type</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="control-group" id="secondaryDimensionGroup">
+            <label for="secondaryDimension">2nd Dimension</label>
+            <select id="secondaryDimension" onchange="onDimensionChange()">
+                <option value="">None</option>
+                <option value="business_use_case">Business Use Case</option>
+                <option value="architecture_pattern">Architecture Pattern</option>
+                <option value="reasoning_pattern">Reasoning Pattern</option>
+                <option value="execution_pattern">Execution Pattern</option>
+                <option value="tool_integration">Tool Integration</option>
+                <option value="human_oversight">Human Oversight</option>
+                <option value="data_complexity">Data Complexity</option>
+                <option value="integration_complexity">Integration Complexity</option>
+                <option value="evaluation_complexity">Evaluation Complexity</option>
+                <option value="domain_expertise">Domain Expertise</option>
+            </select>
+        </div>
+
+        <div class="control-group" id="topNGroup">
+            <label for="topN">Top N</label>
+            <input type="number" id="topN" value="15" min="5" max="100" onchange="updateChart()">
+        </div>
+
+        <div class="separator"></div>
+
+        <button class="btn" onclick="updateChart()">🔄 Update</button>
+        <button class="btn btn-secondary" onclick="exportChart()">💾 Export PNG</button>
+        <button class="btn btn-secondary" onclick="exportData()">📥 Export CSV</button>
+    </div>
+
+    <div class="error-banner" id="errorBanner">
+        <span id="errorMessage"></span>
+        <button class="close-btn" onclick="hideError()">✕</button>
+    </div>
+
+    <div class="chart-container">
+        <div id="chart">
+            <div class="loading">Loading data...</div>
+        </div>
+    </div>
+
+    <script>
+        let proposalsData = [];
+        let currentChart = null;
+
+        // Load data on page load
+        async function loadData() {
+            try {
+                // Try to load the complete proposals with all dimensions
+                const response = await fetch('outputs/proposals_with_implementation.json');
+                if (!response.ok) {
+                    // Fallback to proposals_complete.json if implementation not done yet
+                    const fallbackResponse = await fetch('outputs/proposals_complete.json');
+                    proposalsData = await fallbackResponse.json();
+                } else {
+                    proposalsData = await response.json();
+                }
+
+                // Update stats
+                document.getElementById('totalProposals').textContent = proposalsData.length;
+                document.getElementById('totalCompanies').textContent =
+                    new Set(proposalsData.map(p => p.company)).size;
+
+                // Initial chart
+                updateChart();
+            } catch (error) {
+                showError('Failed to load data: ' + error.message + '. Make sure you are running the dashboard via "python serve_dashboard.py"');
+            }
+        }
+
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorBanner').classList.add('show');
+        }
+
+        function hideError() {
+            document.getElementById('errorBanner').classList.remove('show');
+        }
+
+        function onChartTypeChange() {
+            const chartType = document.getElementById('chartType').value;
+            const needs2D = ['sunburst', 'heatmap', 'scatter', 'sankey'].includes(chartType);
+
+            document.getElementById('secondaryDimensionGroup').style.display =
+                needs2D ? 'flex' : 'none';
+
+            const needsTopN = ['bar', 'pie', 'treemap'].includes(chartType);
+            document.getElementById('topNGroup').style.display =
+                needsTopN ? 'flex' : 'none';
+        }
+
+        function onDimensionChange() {
+            // Auto-update when dimensions change
+            updateChart();
+        }
+
+        function updateChart() {
+            const chartType = document.getElementById('chartType').value;
+            const primaryDim = document.getElementById('primaryDimension').value;
+            const secondaryDim = document.getElementById('secondaryDimension').value;
+            const topN = parseInt(document.getElementById('topN').value);
+
+            hideError();
+
+            try {
+                switch(chartType) {
+                    case 'bar':
+                        createBarChart(primaryDim, topN);
+                        break;
+                    case 'pie':
+                        createPieChart(primaryDim, topN);
+                        break;
+                    case 'treemap':
+                        createTreemap(primaryDim, topN);
+                        break;
+                    case 'sunburst':
+                        createSunburst(primaryDim, secondaryDim);
+                        break;
+                    case 'heatmap':
+                        createHeatmap(primaryDim, secondaryDim);
+                        break;
+                    case 'scatter':
+                        createScatterPlot(primaryDim, secondaryDim);
+                        break;
+                    case 'sankey':
+                        createSankeyDiagram(primaryDim, secondaryDim);
+                        break;
+                }
+            } catch (error) {
+                showError('Chart generation error: ' + error.message);
+            }
+        }
+
+        function countValues(dimension) {
+            const counts = {};
+            proposalsData.forEach(p => {
+                const value = p[dimension] || 'Unknown';
+                // Handle comma-separated values
+                if (value.includes(', ')) {
+                    value.split(', ').forEach(v => {
+                        counts[v] = (counts[v] || 0) + 1;
+                    });
+                } else {
+                    counts[value] = (counts[value] || 0) + 1;
+                }
+            });
+            return counts;
+        }
+
+        function createBarChart(dimension, topN) {
+            const counts = countValues(dimension);
+            const sorted = Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, topN);
+
+            const data = [{
+                x: sorted.map(d => d[0]),
+                y: sorted.map(d => d[1]),
+                type: 'bar',
+                marker: {
+                    color: sorted.map(d => d[1]),
+                    colorscale: 'Viridis'
+                },
+                text: sorted.map(d => d[1]),
+                textposition: 'outside'
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(dimension)} (Top ${topN})`,
+                    font: { size: 20 }
+                },
+                xaxis: { title: formatDimensionName(dimension), tickangle: -45 },
+                yaxis: { title: 'Count' },
+                margin: { b: 150, t: 60, l: 60, r: 40 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createPieChart(dimension, topN) {
+            const counts = countValues(dimension);
+            const sorted = Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, topN);
+
+            const data = [{
+                values: sorted.map(d => d[1]),
+                labels: sorted.map(d => d[0]),
+                type: 'pie',
+                textinfo: 'label+percent',
+                textposition: 'outside',
+                automargin: true
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(dimension)} (Top ${topN})`,
+                    font: { size: 20 }
+                },
+                margin: { t: 60, l: 20, r: 20, b: 20 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createTreemap(dimension, topN) {
+            const counts = countValues(dimension);
+            const sorted = Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, topN);
+
+            const data = [{
+                type: 'treemap',
+                labels: sorted.map(d => d[0]),
+                values: sorted.map(d => d[1]),
+                parents: sorted.map(() => ''),
+                text: sorted.map(d => `${d[1]} proposals`),
+                textposition: 'middle center',
+                marker: { colorscale: 'Viridis' }
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(dimension)} (Top ${topN})`,
+                    font: { size: 20 }
+                },
+                margin: { t: 60, l: 0, r: 0, b: 0 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createSunburst(primaryDim, secondaryDim) {
+            if (!secondaryDim) {
+                showError('Sunburst chart requires a secondary dimension. Please select one from the "2nd Dimension" dropdown.');
+                return;
+            }
+
+            if (primaryDim === secondaryDim) {
+                showError('Primary and secondary dimensions must be different for sunburst chart.');
+                return;
+            }
+
+            const labels = ['All'];
+            const parents = [''];
+            const values = [proposalsData.length];
+            const ids = ['All'];
+
+            // Group by primary dimension
+            const primary = {};
+            proposalsData.forEach(p => {
+                const pVal = p[primaryDim] || 'Unknown';
+                if (!primary[pVal]) primary[pVal] = [];
+                primary[pVal].push(p);
+            });
+
+            // Check if we have enough data points
+            if (Object.keys(primary).length === 0) {
+                showError(`No data found for dimension: ${formatDimensionName(primaryDim)}`);
+                return;
+            }
+
+            // Add primary level and secondary level
+            let hasSecondaryData = false;
+            Object.entries(primary).forEach(([pVal, props]) => {
+                const primaryId = `primary_${pVal}`;
+                labels.push(pVal);
+                parents.push('All');
+                values.push(props.length);
+                ids.push(primaryId);
+
+                // Add secondary level
+                const secondary = {};
+                props.forEach(p => {
+                    const sVal = p[secondaryDim] || 'Unknown';
+                    secondary[sVal] = (secondary[sVal] || 0) + 1;
+                });
+
+                if (Object.keys(secondary).length > 0) {
+                    hasSecondaryData = true;
+                }
+
+                Object.entries(secondary).forEach(([sVal, count]) => {
+                    labels.push(sVal);
+                    parents.push(primaryId);
+                    values.push(count);
+                    ids.push(`${primaryId}_${sVal}`);
+                });
+            });
+
+            if (!hasSecondaryData) {
+                showError(`No data found for secondary dimension: ${formatDimensionName(secondaryDim)}. This may happen if the dimension values are missing or all identical.`);
+                return;
+            }
+
+            const data = [{
+                type: 'sunburst',
+                labels: labels,
+                parents: parents,
+                values: values,
+                ids: ids,
+                branchvalues: 'total',
+                marker: {
+                    colorscale: 'Viridis'
+                }
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(primaryDim)} → ${formatDimensionName(secondaryDim)}`,
+                    font: { size: 20 }
+                },
+                margin: { t: 60, l: 0, r: 0, b: 0 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createHeatmap(primaryDim, secondaryDim) {
+            if (!secondaryDim) {
+                showError('Heatmap requires a secondary dimension. Please select one from the "2nd Dimension" dropdown.');
+                return;
+            }
+
+            if (primaryDim === secondaryDim) {
+                showError('Primary and secondary dimensions must be different for heatmap.');
+                return;
+            }
+
+            // Build co-occurrence matrix
+            const primaryVals = [...new Set(proposalsData.map(p => p[primaryDim] || 'Unknown'))].sort();
+            const secondaryVals = [...new Set(proposalsData.map(p => p[secondaryDim] || 'Unknown'))].sort();
+
+            if (primaryVals.length === 0 || secondaryVals.length === 0) {
+                showError('Insufficient data for heatmap. One or both dimensions have no values.');
+                return;
+            }
+
+            const matrix = [];
+            primaryVals.forEach(pVal => {
+                const row = [];
+                secondaryVals.forEach(sVal => {
+                    const count = proposalsData.filter(p =>
+                        (p[primaryDim] || 'Unknown') === pVal &&
+                        (p[secondaryDim] || 'Unknown') === sVal
+                    ).length;
+                    row.push(count);
+                });
+                matrix.push(row);
+            });
+
+            const data = [{
+                z: matrix,
+                x: secondaryVals,
+                y: primaryVals,
+                type: 'heatmap',
+                colorscale: 'Viridis',
+                text: matrix,
+                texttemplate: '%{text}',
+                textfont: { size: 10 },
+                hovertemplate: '%{y}<br>%{x}<br>Count: %{z}<extra></extra>'
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(primaryDim)} vs ${formatDimensionName(secondaryDim)}`,
+                    font: { size: 20 }
+                },
+                xaxis: { title: formatDimensionName(secondaryDim), tickangle: -45, side: 'bottom' },
+                yaxis: { title: formatDimensionName(primaryDim) },
+                margin: { l: 180, b: 150, t: 60, r: 60 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createScatterPlot(primaryDim, secondaryDim) {
+            if (!secondaryDim) {
+                showError('Scatter plot requires a secondary dimension. Please select one from the "2nd Dimension" dropdown.');
+                return;
+            }
+
+            if (primaryDim === secondaryDim) {
+                showError('Primary and secondary dimensions must be different for scatter plot.');
+                return;
+            }
+
+            // Map categorical to numeric
+            const primaryVals = [...new Set(proposalsData.map(p => p[primaryDim]))];
+            const secondaryVals = [...new Set(proposalsData.map(p => p[secondaryDim]))];
+
+            const data = [{
+                x: proposalsData.map(p => primaryVals.indexOf(p[primaryDim])),
+                y: proposalsData.map(p => secondaryVals.indexOf(p[secondaryDim])),
+                mode: 'markers',
+                type: 'scatter',
+                marker: {
+                    size: 8,
+                    color: proposalsData.map((p, i) => i),
+                    colorscale: 'Viridis',
+                    opacity: 0.6
+                },
+                text: proposalsData.map(p => `${p.company}: ${p.proposal_name}`)
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(primaryDim)} vs ${formatDimensionName(secondaryDim)}`,
+                    font: { size: 20 }
+                },
+                xaxis: {
+                    title: formatDimensionName(primaryDim),
+                    tickvals: [...Array(primaryVals.length).keys()],
+                    ticktext: primaryVals,
+                    tickangle: -45
+                },
+                yaxis: {
+                    title: formatDimensionName(secondaryDim),
+                    tickvals: [...Array(secondaryVals.length).keys()],
+                    ticktext: secondaryVals
+                },
+                margin: { b: 150, l: 180, t: 60, r: 40 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function createSankeyDiagram(primaryDim, secondaryDim) {
+            if (!secondaryDim) {
+                showError('Sankey diagram requires a secondary dimension. Please select one from the "2nd Dimension" dropdown.');
+                return;
+            }
+
+            if (primaryDim === secondaryDim) {
+                showError('Primary and secondary dimensions must be different for Sankey diagram.');
+                return;
+            }
+
+            // Build flows
+            const flows = {};
+            proposalsData.forEach(p => {
+                const source = p[primaryDim] || 'Unknown';
+                const target = p[secondaryDim] || 'Unknown';
+                const key = `${source}→${target}`;
+                flows[key] = (flows[key] || 0) + 1;
+            });
+
+            // Get unique nodes
+            const sourceNodes = [...new Set(proposalsData.map(p => p[primaryDim] || 'Unknown'))];
+            const targetNodes = [...new Set(proposalsData.map(p => p[secondaryDim] || 'Unknown'))];
+            const allNodes = [...sourceNodes, ...targetNodes.filter(n => !sourceNodes.includes(n))];
+
+            // Build links
+            const source = [];
+            const target = [];
+            const value = [];
+
+            Object.entries(flows).forEach(([key, count]) => {
+                const [s, t] = key.split('→');
+                source.push(allNodes.indexOf(s));
+                target.push(allNodes.indexOf(t));
+                value.push(count);
+            });
+
+            const data = [{
+                type: 'sankey',
+                node: {
+                    label: allNodes,
+                    pad: 15,
+                    thickness: 20,
+                    color: 'rgba(52, 152, 219, 0.7)'
+                },
+                link: {
+                    source: source,
+                    target: target,
+                    value: value,
+                    color: 'rgba(52, 152, 219, 0.2)'
+                }
+            }];
+
+            const layout = {
+                title: {
+                    text: `${formatDimensionName(primaryDim)} → ${formatDimensionName(secondaryDim)}`,
+                    font: { size: 20 }
+                },
+                margin: { t: 60, l: 20, r: 20, b: 20 }
+            };
+
+            Plotly.newPlot('chart', data, layout, {responsive: true});
+        }
+
+        function formatDimensionName(dim) {
+            return dim.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        }
+
+        function exportChart() {
+            Plotly.downloadImage('chart', {
+                format: 'png',
+                width: 1920,
+                height: 1080,
+                filename: 'chart_export'
+            });
+        }
+
+        function exportData() {
+            const dimension = document.getElementById('primaryDimension').value;
+            const counts = countValues(dimension);
+
+            let csv = `${formatDimensionName(dimension)},Count\n`;
+            Object.entries(counts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([key, value]) => {
+                    csv += `"${key}",${value}\n`;
+                });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${dimension}_export.csv`;
+            a.click();
+        }
+
+        // Initialize
+        window.onload = function() {
+            loadData();
+            onChartTypeChange(); // Set initial visibility
+        };
+    </script>
+</body>
+</html>

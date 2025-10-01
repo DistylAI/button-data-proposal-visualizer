@@ -1,0 +1,65 @@
+{
+  "architecture_pattern": {
+    "Tool-Using Agent": 343,
+    "Sequential Pipeline": 139,
+    "Workflow Orchestration": 70,
+    "Agentic RAG": 83,
+    "ReAct Agent": 36,
+    "Planning Agent": 34,
+    "Multi-Agent System": 10,
+    "Basic RAG": 9,
+    "Single-Shot Inference": 1
+  },
+  "reasoning_pattern": {
+    "Chain-of-Thought (CoT)": 404,
+    "Planning/Decomposition": 218,
+    "Direct/None": 60,
+    "Zero-Shot": 31,
+    "Few-Shot": 6,
+    "Reflection/Self-Critique": 4,
+    "Ensemble/Multi-Path": 2
+  },
+  "execution_pattern": {
+    "Conditional Branching": 317,
+    "Sequential Chain": 324,
+    "Event-Driven": 26,
+    "Iterative Loop": 39,
+    "Parallel": 4,
+    "Single-Shot": 14,
+    "Human-in-Loop": 1
+  },
+  "knowledge_representation": {
+    "Vector Embeddings": 172,
+    "Document Store": 145,
+    "Structured Database": 441,
+    "Policy Rules": 526,
+    "Sensor/Telemetry": 2,
+    "API/External": 94,
+    "Hybrid Vector+Graph": 13,
+    "Knowledge Graph": 28,
+    "Hybrid Vector+DB": 48
+  },
+  "input_modalities": {
+    "Text Only": 523,
+    "Structured Data": 499,
+    "Sensor/Telemetry": 39,
+    "Text + Images": 161,
+    "Text + Audio": 115,
+    "Multimodal (Text + Images + Audio)": 9,
+    "Text + Video": 5
+  },
+  "tool_integration": {
+    "Multi-System Integration": 385,
+    "Write/Action APIs": 286,
+    "Read-Only APIs": 38,
+    "No Tools": 2,
+    "Workflow Automation": 14
+  },
+  "human_oversight": {
+    "Human Escalation": 441,
+    "Fully Autonomous": 146,
+    "Human Monitoring": 98,
+    "Human Approval Gate": 34,
+    "Co-Pilot": 6
+  }
+}

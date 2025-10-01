@@ -1,0 +1,102 @@
+You are an AI systems architect analyzing technical implementations. For each proposal below, classify it along multiple technical dimensions based on its likely implementation architecture.
+
+## Classification Dimensions:
+
+### 1. SYSTEM ARCHITECTURE PATTERN (pick ONE):
+- **Basic RAG** - Simple retrieval-augmented generation
+- **Agentic RAG** - RAG with autonomous query planning and multi-step retrieval
+- **ReAct Agent** - Reasoning and Acting agent (iterates: thought → action → observation)
+- **Tool-Using Agent** - Agent that calls external tools/APIs/databases
+- **Planning Agent** - Decomposes goals into tasks and executes plans
+- **Multi-Agent System** - Multiple specialized agents working together
+- **Sequential Pipeline** - Fixed sequence of processing steps
+- **Single-Shot Inference** - Single LLM call without retrieval or tools
+- **Workflow Orchestration** - Complex orchestration with conditional branching
+
+### 2. REASONING PATTERN (pick ONE):
+- **Chain-of-Thought (CoT)** - Explicit step-by-step reasoning
+- **Few-Shot** - Relies on examples in prompt
+- **Zero-Shot** - No examples, direct task execution
+- **Reflection/Self-Critique** - Reviews and corrects own outputs
+- **Planning/Decomposition** - Breaks down complex tasks into subtasks
+- **Ensemble/Multi-Path** - Generates multiple solutions and selects best
+- **Direct/None** - No explicit reasoning pattern
+
+### 3. EXECUTION PATTERN (pick ONE):
+- **Single-Shot** - One execution, no loops
+- **Sequential Chain** - Fixed sequence of steps
+- **Iterative Loop** - Repeats until condition met
+- **Parallel** - Multiple paths execute simultaneously
+- **Conditional Branching** - Different paths based on conditions
+- **Human-in-Loop** - Requires human input during execution
+- **Event-Driven** - Triggered by external events
+
+### 4. KNOWLEDGE REPRESENTATION (pick ONE or TWO if hybrid):
+- **Vector Embeddings** - Dense vector representations for similarity search
+- **Knowledge Graph** - Structured entities and relationships
+- **Structured Database** - Traditional SQL/NoSQL databases
+- **Document Store** - Unstructured documents (PDFs, text files)
+- **Hybrid Vector+Graph** - Combines vectors and knowledge graphs
+- **Hybrid Vector+DB** - Combines vectors and structured data
+- **Policy Rules** - Explicit rules and policies
+- **API/External** - Real-time external data sources
+
+### 5. INPUT MODALITIES (can be MULTIPLE):
+- **Text Only**
+- **Text + Images**
+- **Text + Audio**
+- **Text + Video**
+- **Multimodal (Text + Images + Audio)**
+- **Structured Data** - Forms, tables, databases
+- **Sensor/Telemetry** - IoT, equipment sensors
+
+### 6. TOOL INTEGRATION LEVEL (pick ONE):
+- **No Tools** - Pure LLM, no external interactions
+- **Read-Only APIs** - Reads data from external systems
+- **Write/Action APIs** - Can modify external systems
+- **Multi-System Integration** - Integrates with 3+ systems
+- **Workflow Automation** - Triggers complex workflows
+
+### 7. HUMAN OVERSIGHT LEVEL (pick ONE):
+- **Fully Autonomous** - No human required
+- **Human Approval Gate** - Requires approval before action
+- **Human Escalation** - Escalates edge cases to humans
+- **Human Monitoring** - Humans monitor but don't intervene
+- **Co-Pilot** - Human and AI work together in real-time
+
+---
+
+{% for prop in proposals %}
+### Proposal {{ loop.index }}
+**Company:** {{ prop.company }}
+**Name:** {{ prop.proposal_name }}
+**Business Use Case:** {{ prop.business_use_case }}
+
+**Functionality:**
+{{ prop.functionality[:1200] }}
+
+**Problem Solving:**
+{{ prop.problem_solving[:800] }}
+
+**Current State:**
+{{ prop.current_state[:1000] }}
+
+---
+{% endfor %}
+
+Respond with a JSON array where each element corresponds to a proposal (by index 1-based):
+[
+  {
+    "proposal_index": 1,
+    "architecture_pattern": "string",
+    "reasoning_pattern": "string",
+    "execution_pattern": "string",
+    "knowledge_representation": "string or array of strings",
+    "input_modalities": ["array", "of", "strings"],
+    "tool_integration": "string",
+    "human_oversight": "string",
+    "confidence": "high|medium|low"
+  }
+]
+
+IMPORTANT: Return ONLY the JSON array, no other text.

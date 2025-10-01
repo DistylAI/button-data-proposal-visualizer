@@ -1,0 +1,29 @@
+Analyze these AI system proposals and identify the distinct business use case clusters.
+
+{% for prop in proposals %}
+{{ loop.index }}. {{ prop.company }} - {{ prop.proposal_name }}
+   Functionality: {{ prop.functionality[:1000] }}
+   Problem: {{ prop.problem_solving[:600] }}
+   Current State: {{ prop.current_state[:800] }}
+
+{% endfor %}
+
+Based on these proposals, identify 12-18 distinct business use case categories that capture the core functionality patterns. Common patterns include:
+- Approval/authorization pipelines (claims, permits, reviews)
+- Customer service agents
+- Content moderation systems
+- Document generation
+- Knowledge Q&A systems
+- Fraud/risk detection
+- Data extraction
+- Recommendations
+- Forecasting/analytics
+- Contract/policy analysis
+- Medical decision support
+- Compliance automation
+- Quality control
+- Financial processing
+
+Respond with a JSON array of business use case category names, each being a clear, descriptive category name (2-5 words):
+
+["Business Use Case 1", "Business Use Case 2", ...]
