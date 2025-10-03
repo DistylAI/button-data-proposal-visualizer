@@ -158,10 +158,25 @@ def extract_proposals_from_companies(
             'risk_assessment': 1000
         }
 
-    proposal_files = sorted(companies_dir.glob("*/proposals/proposals.json"))
+    # Try refined proposals first, fallback to original proposals
+    refined_files = sorted(companies_dir.glob("*/self-refinement/refined_proposals.json"))
+    original_files = sorted(companies_dir.glob("*/proposals/proposals.json"))
+
+    # Build mapping prioritizing refined versions
+    proposal_files_map = {}
+    for f in original_files:
+        company = f.parent.parent.name
+        proposal_files_map[company] = f
+    for f in refined_files:
+        company = f.parent.parent.name
+        proposal_files_map[company] = f  # Override with refined version
+
+    proposal_files = sorted(proposal_files_map.values())
     all_proposals = []
 
-    print(f"Found {len(proposal_files)} companies with proposals")
+    refined_count = len(refined_files)
+    original_count = len(proposal_files) - refined_count
+    print(f"Found {len(proposal_files)} companies with proposals ({refined_count} refined, {original_count} original)")
 
     for proposal_file in proposal_files:
         company_name = proposal_file.parent.parent.name
@@ -352,8 +367,10 @@ def validate_environment(require_api_key: bool = True) -> bool:
         errors.append("   Or set BUTTON_DATA_PATH to the correct location:")
         errors.append("     export BUTTON_DATA_PATH='/path/to/button-data'")
     else:
-        # Check that companies directory has data
-        proposal_files = list(DEFAULT_COMPANIES_DIR.glob("*/proposals/proposals.json"))
+        # Check that companies directory has data (prefer refined, fallback to original)
+        proposal_files = list(DEFAULT_COMPANIES_DIR.glob("*/self-refinement/refined_proposals.json"))
+        if len(proposal_files) == 0:
+            proposal_files = list(DEFAULT_COMPANIES_DIR.glob("*/proposals/proposals.json"))
         if len(proposal_files) == 0:
             warnings.append(f"⚠️  Data directory exists but contains no proposals: {DEFAULT_COMPANIES_DIR}")
             warnings.append("   Try: git pull in the button-data repository")
@@ -380,8 +397,9 @@ def validate_environment(require_api_key: bool = True) -> bool:
     if require_api_key:
         print("✓ Environment validated")
         print(f"  Data directory: {DEFAULT_COMPANIES_DIR}")
-        proposal_files = list(DEFAULT_COMPANIES_DIR.glob("*/proposals/proposals.json"))
-        print(f"  Found: {len(proposal_files)} companies with proposals")
+        refined_files = list(DEFAULT_COMPANIES_DIR.glob("*/self-refinement/refined_proposals.json"))
+        original_files = list(DEFAULT_COMPANIES_DIR.glob("*/proposals/proposals.json"))
+        print(f"  Found: {len(original_files)} companies with proposals ({len(refined_files)} refined)")
         print()
 
     return True

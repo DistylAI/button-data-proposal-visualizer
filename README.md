@@ -162,7 +162,7 @@ Creates standalone HTML visualizations in `visualizations/` directory.
 ## Analysis Pipeline
 
 ### Phase 1: Extraction
-Extracts proposals from `companies/*/proposals.json` files, capturing:
+Extracts proposals from `companies/*/self-refinement/refined_proposals.json` files (with fallback to `proposals/proposals.json`), capturing:
 - Company name
 - Proposal name
 - Current state
