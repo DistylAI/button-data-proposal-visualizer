@@ -1,65 +1,64 @@
 {
   "architecture_pattern": {
-    "Tool-Using Agent": 343,
-    "Sequential Pipeline": 139,
-    "Workflow Orchestration": 70,
-    "Agentic RAG": 83,
-    "ReAct Agent": 36,
-    "Planning Agent": 34,
-    "Multi-Agent System": 10,
-    "Basic RAG": 9,
-    "Single-Shot Inference": 1
+    "Agentic RAG": 181,
+    "Workflow Orchestration": 104,
+    "Sequential Pipeline": 201,
+    "ReAct Agent": 16,
+    "Tool-Using Agent": 186,
+    "Basic RAG": 19,
+    "Planning Agent": 15,
+    "Multi-Agent System": 8
   },
   "reasoning_pattern": {
-    "Chain-of-Thought (CoT)": 404,
-    "Planning/Decomposition": 218,
-    "Direct/None": 60,
-    "Zero-Shot": 31,
-    "Few-Shot": 6,
-    "Reflection/Self-Critique": 4,
-    "Ensemble/Multi-Path": 2
+    "Chain-of-Thought (CoT)": 417,
+    "Planning/Decomposition": 168,
+    "Direct/None": 83,
+    "Ensemble/Multi-Path": 13,
+    "Few-Shot": 9,
+    "Zero-Shot": 34,
+    "Reflection/Self-Critique": 6
   },
   "execution_pattern": {
-    "Conditional Branching": 317,
-    "Sequential Chain": 324,
-    "Event-Driven": 26,
-    "Iterative Loop": 39,
-    "Parallel": 4,
-    "Single-Shot": 14,
-    "Human-in-Loop": 1
+    "Sequential Chain": 316,
+    "Conditional Branching": 333,
+    "Event-Driven": 25,
+    "Iterative Loop": 26,
+    "Single-Shot": 5,
+    "Parallel": 25
   },
   "knowledge_representation": {
-    "Vector Embeddings": 172,
-    "Document Store": 145,
-    "Structured Database": 441,
-    "Policy Rules": 526,
-    "Sensor/Telemetry": 2,
-    "API/External": 94,
-    "Hybrid Vector+Graph": 13,
-    "Knowledge Graph": 28,
-    "Hybrid Vector+DB": 48
+    "Vector Embeddings": 536,
+    "Policy Rules": 231,
+    "Structured Database": 466,
+    "Document Store": 124,
+    "Knowledge Graph": 30,
+    "API/External": 63,
+    "Hybrid Vector+DB": 13,
+    "Hybrid Vector+Graph": 8,
+    "Sensor/Telemetry": 2
   },
   "input_modalities": {
-    "Text Only": 523,
-    "Structured Data": 499,
-    "Sensor/Telemetry": 39,
-    "Text + Images": 161,
-    "Text + Audio": 115,
-    "Multimodal (Text + Images + Audio)": 9,
-    "Text + Video": 5
+    "Text Only": 459,
+    "Structured Data": 521,
+    "Sensor/Telemetry": 37,
+    "Text + Images": 221,
+    "Text + Audio": 112,
+    "Text + Video": 7,
+    "Multimodal (Text + Images + Audio)": 4
   },
   "tool_integration": {
-    "Multi-System Integration": 385,
-    "Write/Action APIs": 286,
-    "Read-Only APIs": 38,
-    "No Tools": 2,
-    "Workflow Automation": 14
+    "Read-Only APIs": 120,
+    "Write/Action APIs": 194,
+    "Multi-System Integration": 408,
+    "Workflow Automation": 5,
+    "No Tools": 3
   },
   "human_oversight": {
-    "Human Escalation": 441,
-    "Fully Autonomous": 146,
-    "Human Monitoring": 98,
-    "Human Approval Gate": 34,
-    "Co-Pilot": 6
+    "Human Escalation": 579,
+    "Fully Autonomous": 27,
+    "Human Monitoring": 62,
+    "Human Approval Gate": 57,
+    "Co-Pilot": 4,
+    "Human-in-Loop": 1
   }
 }

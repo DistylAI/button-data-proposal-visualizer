@@ -1,146 +1,306 @@
 [
   {
-    "cluster": "Customer Service Automation",
-    "count": 127,
-    "percentage": "17.5%",
-    "num_companies": 93,
-    "companies": "abbvie, albertsons, allianz, american_airlines, apple, asahi_breweries, at&t, bank_of_america, bank_of_new_york_mellon, berkshire_hathaway, capital_one, cardinal_health, caterpillar, charter_communications, chewy",
-    "example_proposals": "abbvie: MEDICAL INFORMATION AUTORESPONDER ( | albertsons: OMNICHANNEL CUSTOMER-CARE AUTOPILOT | allianz: LinguaCare"
+    "cluster": "Omnichannel Customer Care",
+    "count": 103,
+    "percentage": "14.1%",
+    "num_companies": 85,
+    "companies": "adp, albertsons, allianz, archer_daniels_midland, asahi_breweries, bank_of_america, bank_of_new_york_mellon, capital_one, cardinal_health, centene, charter_communications, chewy, chubb, citigroup, cna_financial",
+    "example_proposals": "adp: AUTONOMOUS PAYROLL SUPPORT & RESOLU | albertsons: OMNICHANNEL CUSTOMER-CARE AUTOPILOT | allianz: LinguaCare"
   },
   {
-    "cluster": "Regulatory Compliance Automation",
-    "count": 80,
-    "percentage": "11.0%",
-    "num_companies": 60,
-    "companies": "3m, abbvie, adp, alphabet, american_airlines, american_express, asahi_breweries, bank_of_america, cardinal_health, cencora, centene, comcast, conde_nast, conocophillips, cox_enterprises",
-    "example_proposals": "3m: TRADE-COMPLIANCE AUTOSCREENER (\u201cTRA | abbvie: SCIENTIFIC LITERATURE EVIDENCE SURV | adp: GLOBAL REGTECH COMPLIANCE INTELLIGE"
+    "cluster": "Regulatory Compliance Screening",
+    "count": 68,
+    "percentage": "9.3%",
+    "num_companies": 55,
+    "companies": "3m, alphabet, american_express, apple, asahi_breweries, bank_of_america, boeing, cardinal_health, centene, coatue, comcast, cox_enterprises, energy_transfer_partners, fannie_mae, fedex",
+    "example_proposals": "3m: TRADE-COMPLIANCE AUTOSCREENER (\"TRA | alphabet: ENTERPRISE PRIVACY \u2013 DATA-SUBJECT-R | american_express: \"KYC REFRESH 360\" CONTINUOUS CARDHO"
   },
   {
-    "cluster": "Document Generation & Translation",
-    "count": 66,
-    "percentage": "9.1%",
-    "num_companies": 54,
-    "companies": "abbvie, aig, air_liquide, albertsons, archer_daniels_midland, bank_of_new_york_mellon, berkshire_hathaway, boeing, caterpillar, chevron, chewy, cna_financial, coatue, comcast, conde_nast",
-    "example_proposals": "abbvie: GLOBAL LABEL LOCALIZER & VARIANT GE | aig: COI-GENIE  \u2014  FULLY AUTOMATED CERTI | air_liquide: GLOBAL SDS & DANGEROUS-GOODS DOCUME"
-  },
-  {
-    "cluster": "Invoice & Financial Reconciliation",
-    "count": 63,
-    "percentage": "8.7%",
-    "num_companies": 49,
-    "companies": "3m, abbott_laboratories, american_express, archer_daniels_midland, asahi_breweries, avis_budget_group, bank_of_new_york_mellon, capital_one, cardinal_health, cencora, charter_communications, chevron, chubb, cocacola, conocophillips",
-    "example_proposals": "3m: REBATE & PRICING-COMPLIANCE ENGINE  | abbott_laboratories: INVOICEMATCH 360 | american_express: EXPENSE IQ ZERO-TOUCH COMMERCIAL EX"
-  },
-  {
-    "cluster": "Claims Adjudication & Settlement",
+    "cluster": "Invoice Processing & Reconciliation",
     "count": 54,
     "percentage": "7.4%",
-    "num_companies": 43,
-    "companies": "aig, allianz, allstate, american_airlines, american_express, at&t, avis_budget_group, bank_of_america, berkshire_hathaway, capital_one, centene, chewy, chubb, cigna, cox_enterprises",
+    "num_companies": 46,
+    "companies": "3m, abbott_laboratories, adp, american_express, archer_daniels_midland, asahi_breweries, at&t, avis_budget_group, cardinal_health, charter_communications, chevron, cocacola, conocophillips, cushman_and_wakefield, elevance",
+    "example_proposals": "3m: REBATE & PRICING-COMPLIANCE ENGINE  | abbott_laboratories: INVOICEMATCH 360 | adp: AGENCY CORRESPONDENCE & GARNISHMENT"
+  },
+  {
+    "cluster": "Document Classification & Extraction",
+    "count": 52,
+    "percentage": "7.1%",
+    "num_companies": 42,
+    "companies": "bank_of_new_york_mellon, boeing, capital_one, chewy, chubb, citigroup, conde_nast, costco, cox_enterprises, cvs, elevance, energy_transfer_partners, fannie_mae, first_advantage, freddie_mac",
+    "example_proposals": "bank_of_new_york_mellon: GLOBAL CORPORATE-ACTIONS AUTOPILOT  | boeing: PARTS-CATALOG GENIE \u2013 AUTOMATED SPA | capital_one: DEAL-DOC \u2013 AUTO FINANCE FUNDING & S"
+  },
+  {
+    "cluster": "Warranty Claims Adjudication",
+    "count": 39,
+    "percentage": "5.3%",
+    "num_companies": 35,
+    "companies": "3m, abbott_laboratories, allstate, american_express, at&t, caterpillar, centene, chewy, citigroup, cox_enterprises, dell_technologies, elevance, ford_motor, general_motors, hp",
+    "example_proposals": "3m: WARRANTY-CLAIM ADJUDICATOR (\"CLAIMB | abbott_laboratories: WARRANTYSENSE | allstate: PROTECTION PLANS \"INSTANT REPLACEME"
+  },
+  {
+    "cluster": "Incident Documentation Generation",
+    "count": 38,
+    "percentage": "5.2%",
+    "num_companies": 36,
+    "companies": "3m, avis_budget_group, bank_of_america, bank_of_new_york_mellon, cencora, charter_communications, cisco, elevance, enterprise_products, exxon, fedex, flex_ltd, gilbane, hanesbrands, hca_healthcare",
+    "example_proposals": "3m: CONNECTED-SAFETY INCIDENT NARRATOR  | avis_budget_group: DISPUTE SHIELD (AUTONOMOUS CHARGEBA | bank_of_america: PROJECT \"DISPUTE-DOC\" \u2013 END-TO-END "
+  },
+  {
+    "cluster": "Technical Support Automation",
+    "count": 37,
+    "percentage": "5.1%",
+    "num_companies": 32,
+    "companies": "3m, abbott_laboratories, abbvie, apple, at&t, caterpillar, charter_communications, chevron, cisco, coatue, comcast, conocophillips, dell_technologies, ford_motor, general_motors",
+    "example_proposals": "3m: INDUSTRIAL TECHNICAL ADVISOR (\"ITA\" | abbott_laboratories: LABGENIE | abbvie: MEDICAL INFORMATION AUTORESPONDER ("
+  },
+  {
+    "cluster": "Prior Authorization Automation",
+    "count": 33,
+    "percentage": "4.5%",
+    "num_companies": 28,
+    "companies": "abbott_laboratories, abbvie, albertsons, cardinal_health, cencora, centene, cigna, cvs, elevance, evercommerce, ford_motor, glaxosmithkline, hca_healthcare, humana, johnson_&_johnson",
+    "example_proposals": "abbott_laboratories: LIBRECARE CONCIERGE | abbvie: PRIOR-AUTH & APPEAL AUTOWRITER (\"PA | albertsons: PHARMACY PRIOR-AUTHORIZATION & DENI"
+  },
+  {
+    "cluster": "Underwriting Automation",
+    "count": 27,
+    "percentage": "3.7%",
+    "num_companies": 22,
+    "companies": "aig, allianz, allstate, american_express, bank_of_america, berkshire_hathaway, chubb, cna_financial, erie_insurance, fannie_mae, hsbc_holdings, john_deere, liberty_mutual, lincoln_national, mastercard",
+    "example_proposals": "aig: ATLAS  \u2014  AUTONOMOUS SMALL & MIDDLE | allianz: S2B-One | allianz: TradeFlash"
+  },
+  {
+    "cluster": "Claims Damage Assessment",
+    "count": 27,
+    "percentage": "3.7%",
+    "num_companies": 25,
+    "companies": "aig, allianz, allstate, american_express, avis_budget_group, berkshire_hathaway, chubb, cigna, delta_air_lines, erie_insurance, evercommerce, fedex, jpmorgan_chase, liberty_mutual, nationwide",
     "example_proposals": "aig: ECHO  \u2014  END-TO-END DIGITAL ADJUSTE | allianz: ClaimLight | allstate: AUTO EXPRESS CLAIM-TO-PAYMENT ENGIN"
   },
   {
-    "cluster": "Technical Support & Troubleshooting",
-    "count": 45,
-    "percentage": "6.2%",
-    "num_companies": 38,
-    "companies": "3m, abbott_laboratories, adp, amazon, archer_daniels_midland, avis_budget_group, boeing, cencora, charter_communications, chevron, cisco, comcast, conocophillips, dell_technologies, ford_motor",
-    "example_proposals": "3m: INDUSTRIAL TECHNICAL ADVISOR (\u201cITA\u201d | abbott_laboratories: LABGENIE | adp: AUTONOMOUS PAYROLL SUPPORT & RESOLU"
-  },
-  {
-    "cluster": "Prior Authorization & Appeals",
-    "count": 43,
-    "percentage": "5.9%",
-    "num_companies": 28,
-    "companies": "abbott_laboratories, abbvie, albertsons, cardinal_health, cencora, centene, chewy, cigna, cvs, elevance, evercommerce, freddie_mac, glaxosmithkline, hca_healthcare, humana",
-    "example_proposals": "abbott_laboratories: LIBRECARE CONCIERGE | abbvie: PRIOR-AUTH & APPEAL AUTOWRITER (\u201cPA | albertsons: PHARMACY PRIOR-AUTHORIZATION & DENI"
-  },
-  {
-    "cluster": "Warranty & Returns Processing",
-    "count": 33,
-    "percentage": "4.6%",
-    "num_companies": 31,
-    "companies": "3m, abbott_laboratories, allstate, amazon, caterpillar, chewy, cisco, costco, dell_technologies, flex_ltd, general_motors, gilbane, hanesbrands, hp, koch_industries",
-    "example_proposals": "3m: WARRANTY-CLAIM ADJUDICATOR (\u201cCLAIMB | abbott_laboratories: WARRANTYSENSE | allstate: PROTECTION PLANS \u201cINSTANT REPLACEME"
-  },
-  {
-    "cluster": "Trade & Customs Documentation",
-    "count": 33,
-    "percentage": "4.6%",
-    "num_companies": 32,
-    "companies": "air_liquide, amazon, american_airlines, archer_daniels_midland, at&t, berkshire_hathaway, boeing, caterpillar, citigroup, delta_air_lines, estee_lauder, exxon, fedex, flex_ltd, general_electric",
-    "example_proposals": "air_liquide: CROSS-BORDER DANGEROUS-GOODS CUSTOM | amazon: GLOBAL TRADE COMPLIANCE DOCUMENT GE | american_airlines: CARGO SMART-DOCS ENGINE"
-  },
-  {
-    "cluster": "Underwriting & Risk Assessment",
-    "count": 32,
-    "percentage": "4.4%",
-    "num_companies": 23,
-    "companies": "aig, allianz, allstate, bank_of_america, berkshire_hathaway, centene, chubb, cna_financial, erie_insurance, fannie_mae, freddie_mac, hsbc_holdings, john_deere, liberty_mutual, lincoln_national",
-    "example_proposals": "aig: ATLAS  \u2014  AUTONOMOUS SMALL & MIDDLE | aig: NOVUS  \u2014  AUTONOMOUS PERSONAL LINES | allianz: S2B-One"
-  },
-  {
-    "cluster": "Safety & Incident Reporting",
-    "count": 30,
-    "percentage": "4.1%",
-    "num_companies": 26,
-    "companies": "3m, abbott_laboratories, abbvie, chevron, cisco, enterprise_products, estee_lauder, exxon, fedex, flex_ltd, general_electric, gilbane, glaxosmithkline, johnson_&_johnson, lockheed_martin",
-    "example_proposals": "3m: CONNECTED-SAFETY INCIDENT NARRATOR  | abbott_laboratories: VIGISYNTH | abbvie: GLOBAL PHARMACOVIGILANCE CASE-FLOW "
-  },
-  {
-    "cluster": "Supplier & Vendor Compliance",
-    "count": 29,
-    "percentage": "4.0%",
-    "num_companies": 25,
-    "companies": "albertsons, alphabet, asahi_breweries, boeing, capital_one, caterpillar, cisco, coatue, costco, flex_ltd, gap, general_electric, hanesbrands, koch_industries, lockheed_martin",
-    "example_proposals": "albertsons: CONTINUOUS SUPPLIER COMPLIANCE & IT | alphabet: Google Pay \u2013 Autonomous Merchant Co | asahi_breweries: AUTONOMOUS PROCUREMENT CONTRACT & S"
-  },
-  {
     "cluster": "Product Policy Enforcement",
+    "count": 27,
+    "percentage": "3.7%",
+    "num_companies": 18,
+    "companies": "alphabet, apple, cisco, coatue, cocacola, conde_nast, fannie_mae, glaxosmithkline, google, lululemon, meta_platforms, microsoft, palo_alto_networks, qualcomm, southwest_airlines",
+    "example_proposals": "alphabet: GOOGLE ADS \u2013 AUTONOMOUS AD POLICY E | alphabet: GOOGLE PLAY \u2013 APP POLICY REVIEW COP | alphabet: GOOGLE MERCHANT CENTER \u2013 LISTING PO"
+  },
+  {
+    "cluster": "Contract Interpretation & Reconciliation",
     "count": 26,
     "percentage": "3.6%",
+    "num_companies": 25,
+    "companies": "at&t, capital_one, cencora, cigna, cisco, coatue, conde_nast, costco, cox_enterprises, cvs, enterprise_products, exxon, fedex, gap, hp",
+    "example_proposals": "at&t: BILLING-DISPUTE CONTRACT INTERPRETA | capital_one: MERCURIUS \u2013 MERCHANT ON-BOARDING &  | cencora: MANUFACTURER CHARGEBACK DISPUTE RES"
+  },
+  {
+    "cluster": "Customs Documentation Automation",
+    "count": 23,
+    "percentage": "3.2%",
+    "num_companies": 23,
+    "companies": "air_liquide, amazon, archer_daniels_midland, berkshire_hathaway, caterpillar, conocophillips, delta_air_lines, estee_lauder, exxon, fedex, flex_ltd, general_electric, hp, intel, latam_airlines_group",
+    "example_proposals": "air_liquide: CROSS-BORDER DANGEROUS-GOODS CUSTOM | amazon: GLOBAL TRADE COMPLIANCE DOCUMENT GE | archer_daniels_midland: GLOBAL TRADE DOCUMENTATION AUTOPILO"
+  },
+  {
+    "cluster": "Quote-to-Contract Generation",
+    "count": 22,
+    "percentage": "3.0%",
+    "num_companies": 22,
+    "companies": "air_liquide, archer_daniels_midland, asahi_breweries, at&t, berkshire_hathaway, boeing, caterpillar, coatue, comcast, dell_technologies, ford_motor, gilbane, intel, koch_industries, lowes",
+    "example_proposals": "air_liquide: QUOTE-TO-CONTRACT AUTOPILOT FOR IND | archer_daniels_midland: GRAIN CONTRACT CONFIRMATION & AMEND | asahi_breweries: AUTONOMOUS PROCUREMENT CONTRACT & S"
+  },
+  {
+    "cluster": "Seller Compliance Adjudication",
+    "count": 16,
+    "percentage": "2.2%",
     "num_companies": 16,
-    "companies": "alphabet, amazon, apple, cisco, coatue, cocacola, conde_nast, fannie_mae, glaxosmithkline, google, lululemon, meta_platforms, microsoft, nvidia, the_walt_disney_company",
-    "example_proposals": "alphabet: Google Ads \u2013 Autonomous Ad Policy E | alphabet: Google Play \u2013 App Policy Review Cop | alphabet: Google Merchant Center \u2013 Listing Po"
+    "companies": "albertsons, alphabet, amazon, caterpillar, cisco, costco, gap, general_electric, lowes, mastercard, meta_platforms, microsoft, publix, target, tjx",
+    "example_proposals": "albertsons: CONTINUOUS SUPPLIER COMPLIANCE & IT | alphabet: GOOGLE PAY \u2013 AUTONOMOUS MERCHANT CO | amazon: AUTONOMOUS SELLER TRUST & COMPLIANC"
   },
   {
-    "cluster": "Policy & Contract Analysis",
-    "count": 25,
-    "percentage": "3.4%",
-    "num_companies": 24,
-    "companies": "aig, allstate, chubb, cna_financial, coatue, conde_nast, cushman_and_wakefield, dell_technologies, enterprise_products, erie_insurance, exxon, fannie_mae, gap, hp, liberty_mutual",
-    "example_proposals": "aig: POLARIS  \u2014  AUTOMATED POLICY ENDORS | allstate: ENTERPRISE POLICY ENDORSEMENT AUTOP | chubb: POLICY RENEWAL & ENDORSEMENT AUTO-U"
-  },
-  {
-    "cluster": "Fraud Detection & Prevention",
-    "count": 17,
-    "percentage": "2.3%",
-    "num_companies": 16,
-    "companies": "at&t, avis_budget_group, citigroup, fannie_mae, first_advantage, goldman_sachs, google, lululemon, mastercard, pg&e_corp, target, td_bank_group, tiaa, tmobile, wells_fargo",
-    "example_proposals": "at&t: Fraud Case Autoremediation Agent | avis_budget_group: DISPUTE SHIELD (AUTONOMOUS CHARGEBA | citigroup: CARD-DISPUTE BOT"
-  },
-  {
-    "cluster": "HR & Benefits Administration",
-    "count": 15,
-    "percentage": "2.1%",
+    "cluster": "Returns Resolution Automation",
+    "count": 14,
+    "percentage": "1.9%",
     "num_companies": 14,
-    "companies": "adp, albertsons, cigna, delta_air_lines, ibm, kroger, new_york_life_insurance, old_mutual, pepsico, pg&e_corp, plains_all_american_pipeline, publix, the_home_depot, walmart",
-    "example_proposals": "adp: PERSONALIZED BENEFITS SELECTION & A | adp: AGENCY CORRESPONDENCE & GARNISHMENT | albertsons: ASSOCIATE HR & UNION-SCHEDULING COP"
+    "companies": "amazon, capital_one, chewy, costco, flex_ltd, general_motors, hanesbrands, lowes, lululemon, target, td_synnex, the_home_depot, tjx, walmart",
+    "example_proposals": "amazon: NO-TOUCH RETURNS RESOLUTION AGENT | capital_one: AUTO-DISPUTE \u2013 CHARGEBACK & REG-Z R | chewy: RAPIDRETURN: AUTOMATED RETURN & REF"
   },
   {
-    "cluster": "Knowledge Base Q&A",
+    "cluster": "Maintenance Work Order Creation",
+    "count": 12,
+    "percentage": "1.6%",
+    "num_companies": 12,
+    "companies": "air_liquide, avis_budget_group, boeing, charter_communications, chevron, cushman_and_wakefield, general_electric, honeywell, lockheed_martin, marathon_petroleum, phillips_66, tesla",
+    "example_proposals": "air_liquide: PREDICTIVE MAINTENANCE WORK-ORDER N | avis_budget_group: AUTONOMOUS MAINTENANCE CO-ORDINATOR | boeing: MX-GPT \u2013 AUTOMATED AIRLINE TROUBLES"
+  },
+  {
+    "cluster": "Certificate Generation & Issuance",
+    "count": 11,
+    "percentage": "1.5%",
+    "num_companies": 10,
+    "companies": "aig, archer_daniels_midland, berkshire_hathaway, chevron, cna_financial, energy_transfer_partners, phillips_66, qualcomm, the_hartford, valero_energy",
+    "example_proposals": "aig: COI-GENIE  \u2014  FULLY AUTOMATED CERTI | archer_daniels_midland: CERTIFICATE-OF-ANALYSIS & QUALITY R | berkshire_hathaway: BHSI / NATIONAL INDEMNITY \"COI-XPRE"
+  },
+  {
+    "cluster": "Pharmacovigilance Case Processing",
+    "count": 10,
+    "percentage": "1.4%",
+    "num_companies": 9,
+    "companies": "abbott_laboratories, abbvie, estee_lauder, glaxosmithkline, johnson_&_johnson, mckesson, merck_&_co, pfizer, sanofi",
+    "example_proposals": "abbott_laboratories: VIGISYNTH | abbvie: GLOBAL PHARMACOVIGILANCE CASE-FLOW  | estee_lauder: VIGILANTAI 2.0 \u2013 SAFETY & COMPLIANC"
+  },
+  {
+    "cluster": "Personalized Marketing Generation",
+    "count": 10,
+    "percentage": "1.4%",
+    "num_companies": 10,
+    "companies": "albertsons, conde_nast, energy_transfer_partners, hanesbrands, marriott, pg&e_corp, procter_&_gamble, southwest_airlines, sysco, the_walt_disney_company",
+    "example_proposals": "albertsons: HOUSEHOLD-LEVEL \"1:1 DIGITAL CIRCUL | conde_nast: LETTERCRAFT 2.0 | energy_transfer_partners: ONEBALANCEGPT\u2122  (AUTOMATED DAILY PI"
+  },
+  {
+    "cluster": "Supply Chain Exception Management",
+    "count": 10,
+    "percentage": "1.4%",
+    "num_companies": 8,
+    "companies": "amazon, bank_of_new_york_mellon, cencora, enterprise_products, flex_ltd, hanesbrands, rtx_corporation, stonex_group",
+    "example_proposals": "amazon: SUPPLY-CHAIN EXCEPTION RESOLUTION A | bank_of_new_york_mellon: REAL-TIME PAYMENT EXCEPTION RESOLUT | bank_of_new_york_mellon: TRADE-SETTLEMENT BREAK RESOLUTION A"
+  },
+  {
+    "cluster": "Policy Endorsement Processing",
+    "count": 8,
+    "percentage": "1.1%",
+    "num_companies": 8,
+    "companies": "aig, allstate, cna_financial, cushman_and_wakefield, erie_insurance, liberty_mutual, nationwide, the_hartford",
+    "example_proposals": "aig: POLARIS  \u2014  AUTOMATED POLICY ENDORS | allstate: ENTERPRISE POLICY ENDORSEMENT AUTOP | cna_financial: AUTO-ENDORSEMENT & POLICY-CHANGE BO"
+  },
+  {
+    "cluster": "HR Policy Interpretation",
+    "count": 8,
+    "percentage": "1.1%",
+    "num_companies": 8,
+    "companies": "albertsons, delta_air_lines, ibm, kroger, morgan_stanley, pepsico, the_home_depot, walmart",
+    "example_proposals": "albertsons: ASSOCIATE HR & UNION-SCHEDULING COP | delta_air_lines: CREW RESCHEDULER & CONTRACT-COMPLIA | ibm: ASKHR PRO"
+  },
+  {
+    "cluster": "Renewal Processing Automation",
+    "count": 7,
+    "percentage": "1.0%",
+    "num_companies": 7,
+    "companies": "aig, chubb, cna_financial, old_mutual, progressive, td_synnex, tokio_marine",
+    "example_proposals": "aig: NOVUS  \u2014  AUTONOMOUS PERSONAL LINES | chubb: POLICY RENEWAL & ENDORSEMENT AUTO-U | cna_financial: ZERO-TOUCH RENEWAL ENGINE"
+  },
+  {
+    "cluster": "Label & Documentation Localization",
+    "count": 6,
+    "percentage": "0.8%",
+    "num_companies": 6,
+    "companies": "abbvie, asahi_breweries, comcast, estee_lauder, gap, procter_&_gamble",
+    "example_proposals": "abbvie: GLOBAL LABEL LOCALIZER & VARIANT GE | asahi_breweries: GLOBAL LABEL & REGULATORY COPY GENE | comcast: SMARTLOCALIZE \u2014 AI LOCALIZATION FAC"
+  },
+  {
+    "cluster": "Personalized Benefits Recommendation",
+    "count": 6,
+    "percentage": "0.8%",
+    "num_companies": 6,
+    "companies": "adp, freddie_mac, lululemon, pg&e_corp, tmobile, walgreens_boots_alliance",
+    "example_proposals": "adp: PERSONALIZED BENEFITS SELECTION & A | freddie_mac: AFFORDABLE-HOUSING PROGRAM ELIGIBIL | lululemon: FIT & SIZE RECOMMENDATION CHAT"
+  },
+  {
+    "cluster": "Refund & Compensation Processing",
+    "count": 6,
+    "percentage": "0.8%",
+    "num_companies": 6,
+    "companies": "american_airlines, lululemon, marriott, microsoft, united_airlines, verizon_communications",
+    "example_proposals": "american_airlines: REFUND & STATUTORY COMPENSATION AUT | lululemon: PAYMENT DISPUTE & CHARGEBACK AUTOPI | marriott: AUTOMATED COMPLAINT & SOCIAL RESOLU"
+  },
+  {
+    "cluster": "Safety Data Sheet Automation",
     "count": 5,
     "percentage": "0.7%",
     "num_companies": 5,
-    "companies": "freddie_mac, gilbane, lowes, nvidia, stonex_group",
-    "example_proposals": "freddie_mac: FREDDIE MAC GUIDE COPILOT & LENDER  | gilbane: KNOWLEDGE-FUSION-GPT | lowes: PRODUCT KNOWLEDGE & SPECIFICATIONS "
+    "companies": "air_liquide, exxon, honeywell, united_parcel_service, verizon_communications",
+    "example_proposals": "air_liquide: GLOBAL SDS & DANGEROUS-GOODS DOCUME | exxon: GLOBAL SDS & LABEL GENERATION ENGIN | honeywell: CHEMREGGPT"
   },
   {
-    "cluster": "Travel & Booking Assistance",
+    "cluster": "Travel Disruption Recovery",
+    "count": 5,
+    "percentage": "0.7%",
+    "num_companies": 5,
+    "companies": "american_airlines, delta_air_lines, latam_airlines_group, southwest_airlines, united_airlines",
+    "example_proposals": "american_airlines: AUTONOMOUS DISRUPTION-RECOVERY CONC | delta_air_lines: IROPS AUTOPILOT | latam_airlines_group: AUTOPILOT-IROPS  END-TO-END DISRUPT"
+  },
+  {
+    "cluster": "Loyalty Program Automation",
+    "count": 4,
+    "percentage": "0.5%",
+    "num_companies": 4,
+    "companies": "american_airlines, delta_air_lines, latam_airlines_group, united_airlines",
+    "example_proposals": "american_airlines: AADVANTAGE\u0000AUTOPILOT (LOYALTY SERVI | delta_air_lines: SKYMILES CREDIT RESOLVER | latam_airlines_group: MILESHIELD  LOYALTY CLAIM & FRAUD A"
+  },
+  {
+    "cluster": "Timecard Exception Resolution",
+    "count": 3,
+    "percentage": "0.4%",
+    "num_companies": 3,
+    "companies": "adp, publix, rtx_corporation",
+    "example_proposals": "adp: TIMECARD & SCHEDULING ANOMALY RESOL | publix: ASSOCIATE SCHEDULING & TIME-OFF CON | rtx_corporation: POLARIS \u2013 AUTONOMOUS TRAVEL & EXPEN"
+  },
+  {
+    "cluster": "Cloud Support Troubleshooting",
+    "count": 3,
+    "percentage": "0.4%",
+    "num_companies": 3,
+    "companies": "amazon, google, microsoft",
+    "example_proposals": "amazon: AWS SUPPORT ENGINEER-IN-A-BOX | google: GOOGLE CLOUD SUPPORT TICKET AUTO-RE | microsoft: AZURE AUTOPILOT SUPPORT AGENT \u2015 RAN"
+  },
+  {
+    "cluster": "Trade Classification & Documentation",
+    "count": 3,
+    "percentage": "0.4%",
+    "num_companies": 3,
+    "companies": "boeing, honeywell, hsbc_holdings",
+    "example_proposals": "boeing: EXPORT-GPT \u2013 AUTONOMOUS TRADE-COMPL | honeywell: EXPORTCLEAR-GPT | hsbc_holdings: AUTONOMOUS TRADE-FINANCE DOCUMENT E"
+  },
+  {
+    "cluster": "Cargo Documentation Compliance",
     "count": 2,
     "percentage": "0.3%",
     "num_companies": 2,
-    "companies": "american_airlines, world_kinect",
-    "example_proposals": "american_airlines: AUTONOMOUS DISRUPTION-RECOVERY CONC | world_kinect: AVIATION TRIP-ORCHESTRATOR (REVISED"
+    "companies": "american_airlines, southwest_airlines",
+    "example_proposals": "american_airlines: CARGO SMART-DOCS ENGINE | southwest_airlines: CARGOGEN AUTONOMOUS CARGO QUOTING, "
+  },
+  {
+    "cluster": "Travel Document Verification",
+    "count": 2,
+    "percentage": "0.3%",
+    "num_companies": 2,
+    "companies": "american_airlines, latam_airlines_group",
+    "example_proposals": "american_airlines: TRAVEL DOCUMENT & VISA COMPLIANCE A | latam_airlines_group: TRAVELDOC-GPT  PASSENGER TRAVEL-DOC"
+  },
+  {
+    "cluster": "Literature Surveillance & Triage",
+    "count": 1,
+    "percentage": "0.1%",
+    "num_companies": 1,
+    "companies": "abbvie",
+    "example_proposals": "abbvie: SCIENTIFIC LITERATURE EVIDENCE SURV"
+  },
+  {
+    "cluster": "Regulatory Intelligence Monitoring",
+    "count": 1,
+    "percentage": "0.1%",
+    "num_companies": 1,
+    "companies": "adp",
+    "example_proposals": "adp: GLOBAL REGTECH COMPLIANCE INTELLIGE"
+  },
+  {
+    "cluster": "Inspection Certificate Generation",
+    "count": 1,
+    "percentage": "0.1%",
+    "num_companies": 1,
+    "companies": "air_liquide",
+    "example_proposals": "air_liquide: CYLINDER PERIODIC INSPECTION CERTIF"
   }
 ]

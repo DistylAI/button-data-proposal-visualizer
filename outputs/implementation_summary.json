@@ -1,111 +1,100 @@
 {
   "data_complexity": {
-    "Multiple Sources": 403,
-    "Structured": 422,
-    "Streaming/Real-time": 60,
-    "Multimodal": 224,
-    "Simple": 167,
-    "Complex": 57,
-    "Single Source": 19,
-    "Unknown": 16,
-    "Sparse/Incomplete": 3
+    "Multiple Sources": 357,
+    "Structured": 374,
+    "Streaming/Real-time": 77,
+    "Multimodal": 278,
+    "Simple": 176,
+    "Complex": 102,
+    "Single Source": 17,
+    "Sparse/Incomplete": 1
   },
   "integration_complexity": {
-    "Read-Only (4+ systems)": 46,
-    "Write/Action (4+ systems)": 453,
-    "Write/Action (1-3 systems)": 187,
-    "Read-Only (1-3 systems)": 14,
-    "Bidirectional with Compensation": 9,
-    "Unknown": 16
+    "Read-Only (4+ systems)": 103,
+    "Write/Action (4+ systems)": 428,
+    "Write/Action (1-3 systems)": 158,
+    "Read-Only (1-3 systems)": 37,
+    "Bidirectional with Compensation": 3,
+    "No External Integration": 1
   },
   "prompt_complexity": {
-    "Dynamic Prompt Assembly": 617,
-    "Few Static Prompts (2-5)": 68,
-    "Adaptive/Self-Modifying": 10,
-    "Many Static Prompts (6+)": 14,
-    "Unknown": 16
+    "Dynamic Prompt Assembly": 652,
+    "Few Static Prompts (2-5)": 69,
+    "Adaptive/Self-Modifying": 3,
+    "Many Static Prompts (6+)": 6
   },
   "chain_depth": {
-    "Sequential (4-7 steps)": 399,
-    "Sequential (2-3 steps)": 77,
-    "Sequential (8+ steps)": 18,
-    "Cyclic/Iterative": 46,
-    "Branching (2-5 paths)": 136,
-    "DAG (Directed Acyclic Graph)": 16,
-    "Branching (6+ paths)": 16,
-    "Single-Shot": 1,
-    "Unknown": 16
+    "Sequential (4-7 steps)": 530,
+    "Branching (2-5 paths)": 82,
+    "Sequential (2-3 steps)": 51,
+    "DAG (Directed Acyclic Graph)": 24,
+    "Cyclic/Iterative": 28,
+    "Sequential (8+ steps)": 10,
+    "Branching (6+ paths)": 5
   },
   "schema_complexity": {
-    "Hybrid (Structured + Unstructured)": 158,
-    "Deep Structured (4+ levels)": 179,
-    "Nested Structured (2-3 levels)": 320,
-    "Graph/Relational": 21,
-    "Simple Structured (flat JSON)": 31,
-    "Unknown": 16
+    "Hybrid (Structured + Unstructured)": 165,
+    "Nested Structured (2-3 levels)": 326,
+    "Deep Structured (4+ levels)": 200,
+    "Simple Structured (flat JSON)": 18,
+    "Graph/Relational": 19,
+    "Streaming/Progressive": 2
   },
   "state_management": {
-    "Session State (Short-term)": 366,
-    "Stateless": 115,
-    "Complex State Machine": 164,
-    "Distributed State": 8,
-    "User State (Long-term)": 51,
-    "Unknown": 16,
-    "Event Sourcing": 5
+    "Session State (Short-term)": 399,
+    "Stateless": 140,
+    "Complex State Machine": 132,
+    "User State (Long-term)": 47,
+    "Distributed State": 10,
+    "Event Sourcing": 2
   },
   "error_handling": {
-    "Human Escalation Required": 320,
-    "Mission Critical": 75,
-    "Graceful Degradation": 175,
+    "Human Escalation Required": 349,
+    "Mission Critical": 78,
+    "Graceful Degradation": 171,
     "Compensation/Rollback": 96,
-    "Retry with Backoff": 38,
-    "Best Effort": 5,
-    "Unknown": 16
+    "Retry with Backoff": 32,
+    "Best Effort": 4
   },
   "evaluation_complexity": {
-    "Human Evaluation Required (Complex)": 107,
-    "Ground Truth Available (Exact Match)": 150,
-    "Ground Truth Available (Similarity)": 69,
-    "Multi-Dimensional Scoring": 221,
-    "Proxy Metrics": 77,
-    "Delayed/Indirect Feedback": 25,
-    "Human Evaluation Required (Simple)": 59,
-    "Unknown": 17
+    "Multi-Dimensional Scoring": 317,
+    "Ground Truth Available (Exact Match)": 141,
+    "Human Evaluation Required (Complex)": 94,
+    "Proxy Metrics": 61,
+    "Human Evaluation Required (Simple)": 40,
+    "Ground Truth Available (Similarity)": 53,
+    "Delayed/Indirect Feedback": 24
   },
   "domain_expertise": {
-    "Specialist Knowledge": 243,
-    "Expert Knowledge with Complex Rules": 106,
-    "Professional Knowledge": 358,
-    "General Knowledge": 2,
-    "Unknown": 16
+    "Specialist Knowledge": 292,
+    "Expert Knowledge with Complex Rules": 40,
+    "Professional Knowledge": 396,
+    "General Knowledge": 2
   },
   "latency_requirements": {
-    "Interactive (<5 seconds)": 250,
-    "Real-time (<1 second)": 74,
-    "Near Real-time (minutes)": 253,
-    "Batch/Async (hours-days)": 125,
-    "Burst Handling Required": 4,
-    "Sub-second (<200ms)": 3,
-    "Unknown": 16
+    "Interactive (<5 seconds)": 266,
+    "Real-time (<1 second)": 60,
+    "Near Real-time (minutes)": 255,
+    "Batch/Async (hours-days)": 139,
+    "Sub-second (<200ms)": 5,
+    "Burst Handling Required": 5
   },
   "regulatory_requirements": {
-    "Full Auditability": 256,
-    "Highly Regulated (HIPAA/SOX/etc.)": 304,
-    "Safety-Critical": 14,
-    "Basic Audit Trail": 84,
-    "PII/Sensitive Data": 38,
-    "Explainability Required": 10,
-    "No Special Requirements": 3,
-    "Unknown": 16
+    "Full Auditability": 293,
+    "Highly Regulated (HIPAA/SOX/etc.)": 318,
+    "PII/Sensitive Data": 33,
+    "Basic Audit Trail": 61,
+    "Safety-Critical": 18,
+    "Explainability Required": 5,
+    "No Special Requirements": 2
   },
   "rerepresentation_type": {
-    "Decision Tree": 330,
-    "Linear Flow Diagram": 485,
-    "State Machine": 214,
-    "Entity-Relationship Diagram": 100,
-    "Process + Data Model (Combined)": 59,
-    "DAG (Directed Acyclic Graph)": 33,
-    "Network/Graph Structure": 5,
-    "Unknown": 16
+    "Linear Flow Diagram": 593,
+    "Decision Tree": 334,
+    "State Machine": 184,
+    "DAG (Directed Acyclic Graph)": 36,
+    "Entity-Relationship Diagram": 43,
+    "Process + Data Model (Combined)": 83,
+    "Network/Graph Structure": 3
   }
 }
